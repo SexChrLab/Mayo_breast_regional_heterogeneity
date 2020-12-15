@@ -154,6 +154,7 @@ def main():
     print(len(common))
 
     all_variants = f3_p4.union(f4_p4, f5_p4, f6_p4)
+    print(len(all_variants))
 
     outfile = open(
         "/scratch/tphung3/Mayo_breast_regional_heterogeneity/04_mutational_landscape/results/PS13-1962_tumors_upsetplot_input.csv",
@@ -161,7 +162,7 @@ def main():
     header = ["variants", "F3-P4", "F4-P4", "F5-P4", "F6-P4"]
     print(",".join(header), file=outfile)
 
-    files = [a1_p4, a2_p4, a2_p5, a3_p4, a4_p4, a5_p4, a6_p4, a7_p4, a8_p4, a9_p4, a10_p4]
+    files = [f3_p4, f4_p4, f5_p4, f6_p4]
 
     for i in all_variants:
         out = [i]

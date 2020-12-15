@@ -11,11 +11,8 @@ plugin_path = "/home/tphung3/.vep/Plugins"
 perl5lib_path = "/home/tphung3/softwares/miniconda3/envs/epitopepipeline/lib/site_perl/5.26.2/"
 
 rule all:
-    input: #generate peptides
-        expand("peptides/{sample}.VarScan_vep.15.peptide", sample=config["tumor_names"]),
-        expand("peptides/{sample}.VarScan_vep.17.peptide", sample=config["tumor_names"]),
-        expand("peptides/{sample}.VarScan_vep.19.peptide", sample=config["tumor_names"]),
-        expand("peptides/{sample}.VarScan_vep.21.peptide", sample=config["tumor_names"])
+    input:
+        expand("somatic_mutation/{sample}/{sample}.VarScan_vep_most_severe.vcf", sample=config["tumor_names"])
     input: #varscan
         expand("intermediate_files/{sample}.VarScan.snp.Somatic.hc.filter", sample=config["tumor_names"])
     input:
@@ -168,4 +165,18 @@ rule run_vep:
     shell:
         """
         PERL5LIB={params.perl5lib} perl {params.vep} -i {input} --format vcf --cache --assembly GRCh38 --offline --vcf -o {output}  --force_overwrite --plugin Wildtype --dir_plugins {params.plugins} --symbol --terms SO --plugin Downstream
+        """
+
+rule run_vep_most_severe:
+    input:
+        "somatic_mutation/{sample}/{sample}.VarScan_variants_filter.pass.noheader.vcf"
+    output:
+        "somatic_mutation/{sample}/{sample}.VarScan_vep_most_severe.vcf"
+    params:
+        vep = vep_path,
+        plugins = plugin_path,
+        perl5lib = perl5lib_path
+    shell:
+        """
+        PERL5LIB={params.perl5lib} perl {params.vep} -i {input} --format vcf --cache --assembly GRCh38 --offline --vcf -o {output}  --force_overwrite --plugin Wildtype --dir_plugins {params.plugins} --terms SO --plugin Downstream --most_severe
         """
