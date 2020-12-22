@@ -5,6 +5,6 @@ python ~/scratch/neoantigens_prioritization/neoepitope_prediction.py --hla_types
 done
 
 for i in PS13-1750-A10-P4 PS13-1750-A1-P4 PS13-1750-A2-P4 PS13-1750-A2-P5 PS13-1750-A3-P4 PS13-1750-A4-P4 PS13-1750-A5-P4 PS13-1750-A6-P4 PS13-1750-A7-P4 PS13-1750-A8-P4 PS13-1750-A9-P4 PS13-585-A10-P3 PS13-585-A10-P5 PS13-585-A10-P6 PS13-585-A11-P3-rep PS13-585-A11-P5 PS13-585-A12-P3 PS13-585-A12-P5 PS13-585-A1-P3 PS13-585-A2-P3 PS13-585-A3-P3 PS13-585-A3-P5 PS13-585-A4-P3 PS13-585-A4-P5 PS13-585-A5-P3 PS13-585-A6-P3-rep PS13-585-A7-P3 PS13-585-A8-P3 PS13-585-A8-P5 PS13-585-A9-P3-rep PS13-585-B1-P3 PS13-585-B2-P3 PS13-585-B3-P3-rep PS13-585-D1-P3 PS13-585-F1-P3 PS13-585-F2-P3 PS13-9062F6-P4 PS13-9062F5-P4 PS13-9062F4-P4 PS13-9062F3-P4; do
-cat ../run_mhcpan/${i}/*9_mers_filtered_neoepitopes_no_tpm.tsv >> ../run_mhcpan/${i}/all_hlas_9_mers_filtered_neoepitopes_no_tpm.tsv
-grep -v Peptide ../run_mhcpan/${i}/all_hlas_9_mers_filtered_neoepitopes_no_tpm.tsv > ../run_mhcpan/${i}/all_hlas_9_mers_filtered_neoepitopes_no_tpm_clean.tsv
+cat ../run_mhcpan/${i}/*9_mers_filtered_neoepitopes_binding_only.tsv >> ../run_mhcpan/${i}/all_hlas_9_mers_filtered_neoepitopes_binding_only.tsv
+grep -v Peptide ../run_mhcpan/${i}/all_hlas_9_mers_filtered_neoepitopes_binding_only.tsv > ../run_mhcpan/${i}/all_hlas_9_mers_filtered_neoepitopes_binding_only_clean.tsv
 done
