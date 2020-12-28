@@ -23,7 +23,7 @@ def main():
 
     common = a1_p4.intersection(a2_p4, a2_p5, a3_p4, a4_p4, a5_p4, a6_p4, a7_p4, a8_p4, a9_p4, a10_p4)
     print(len(common))
-    print(common)
+    print("1750: ", common)
 
     all_neoantigens = a1_p4.union(a2_p4, a2_p5, a3_p4, a4_p4, a5_p4, a6_p4, a7_p4, a8_p4, a9_p4, a10_p4)
 
@@ -69,6 +69,7 @@ def main():
 
     common = a1_p3.intersection(a2_p3, a3_p3, a3_p5, a4_p3, a4_p5, a5_p3, a6_p3, a7_p3, a8_p3, a8_p5, a9_p3, a10_p3, a10_p5, a10_p6, a11_p3, a11_p5, a12_p3, a12_p5)
     print(len(common))
+    print("585 primary: ", common)
 
     all_neoantigens = a1_p3.union(a2_p3, a3_p3, a3_p5, a4_p3, a4_p5, a5_p3, a6_p3, a7_p3, a8_p3, a8_p5, a9_p3, a10_p3, a10_p5, a10_p6, a11_p3, a11_p5, a12_p3, a12_p5)
 
@@ -100,6 +101,7 @@ def main():
 
     common = b1_p3.intersection(b2_p3, b3_p3, d1_p3, f1_p3, f2_p3)
     print(len(common))
+    print("585 distant: ", common)
 
     all_neoantigens = b1_p3.union(b2_p3, b3_p3, d1_p3, f1_p3, f2_p3)
 
@@ -123,6 +125,7 @@ def main():
     # All
     common = a1_p3.intersection(a2_p3, a3_p3, a3_p5, a4_p3, a4_p5, a5_p3, a6_p3, a7_p3, a8_p3, a8_p5, a9_p3, a10_p3, a10_p5, a10_p6, a11_p3, a11_p5, a12_p3, a12_p5, b2_p3, b3_p3, d1_p3, f1_p3, f2_p3)
     print(len(common))
+    print("585 all: ", common)
 
     all_neoantigens = a1_p3.union(a2_p3, a3_p3, a3_p5, a4_p3, a4_p5, a5_p3, a6_p3, a7_p3, a8_p3, a8_p5, a9_p3, a10_p3, a10_p5, a10_p6, a11_p3, a11_p5, a12_p3, a12_p5, b2_p3, b3_p3, d1_p3, f1_p3, f2_p3)
 
@@ -143,7 +146,7 @@ def main():
                 out.append("0")
         print(",".join(out), file=outfile)
 
-    # PS13-1962
+    # PS13-9062
     f3_p4 = return_set_of_neoantigens("/scratch/tphung3/Mayo_breast_regional_heterogeneity/03_neoantigens/run_mhcpan/PS13-9062F3-P4/all_hlas_9_mers_filtered_neoepitopes_binding_only_clean.tsv")
     f4_p4 = return_set_of_neoantigens("/scratch/tphung3/Mayo_breast_regional_heterogeneity/03_neoantigens/run_mhcpan/PS13-9062F4-P4/all_hlas_9_mers_filtered_neoepitopes_binding_only_clean.tsv")
     f5_p4 = return_set_of_neoantigens("/scratch/tphung3/Mayo_breast_regional_heterogeneity/03_neoantigens/run_mhcpan/PS13-9062F5-P4/all_hlas_9_mers_filtered_neoepitopes_binding_only_clean.tsv")
@@ -151,6 +154,7 @@ def main():
 
     common = f3_p4.intersection(f4_p4, f5_p4, f6_p4)
     print(len(common))
+    print("9062 primary: ", common)
 
     all_neoantigens = f3_p4.union(f4_p4, f5_p4, f6_p4)
 
