@@ -1,6 +1,9 @@
 # Mayo_breast_regional_heterogeneity
 Multiregional sampling analysis
 
+## 00_Data
+- We used this pipeline (https://github.com/thw17/Mayo_breast_cancer_heterogeneity_assembly) to assemble and clean our data. We used BAM files output from this pipeline for downstream analyses.
+
 ## 01_somatic_mutation_calling
 - Use Varscan to genotype somatic mutations
 - Snakefile: `MAYO_breastcancer.Snakefile`
